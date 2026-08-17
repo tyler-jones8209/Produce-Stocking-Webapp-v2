@@ -1,0 +1,9 @@
+{
+  "name": "Produce Stock",
+  "short_name": "Produce",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": []
+}
