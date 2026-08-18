@@ -4,3 +4,10 @@ body {
   margin: 0 auto;
   padding: 16px;
 }
+
+#grid_container {
+  display: grid;
+  grid-template-columns: repeat(2, 170px);
+  gap: 1.5px;
+  place-content: center;
+}

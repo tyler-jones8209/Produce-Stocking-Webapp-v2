@@ -5,8 +5,8 @@ export const produce_list = [
     'Baby Spinach',
     'Baby Arugula',
     '50/50 Salad Mix',
-    'Organic Salad Mix',
-    'Organic XL Salad Mix',
+    'Organic Spring Mix',
+    'Organic XL Spring Mix',
     'Lemon Herb',
     'Sweet Kale',
     'Basil Crunch', // ?
