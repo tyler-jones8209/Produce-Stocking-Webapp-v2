@@ -16,13 +16,8 @@ grid_array.forEach((row, row_index) => {
   row.forEach((val, column_index) => {
     const list_item = produce_list[column_index];
     const cell = document.createElement('div');
-
-    // ideally the CSS would be handled in the CSS file instead of here but idk how to do that
-    cell.style.width = '170px';
-    cell.style.height = '170px';
-    cell.style.background = '#ccc';
+    cell.id = "grid_cell";
     cell.textContent = list_item;
-    cell.style.textAlign = 'bottom';
     grid_container.appendChild(cell);
   });
 });
