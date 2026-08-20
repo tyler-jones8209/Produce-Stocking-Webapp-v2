@@ -1,0 +1,21 @@
+# gah dayum i am rusty with python
+
+from PIL import Image
+import argparse
+
+def convert_to_png(file):
+    photo = Image.open(file)
+
+    clean_name = file.split('.')[-2]#.split('\\')[-1]
+
+    #print(clean_name)
+
+    photo.save(f'.{clean_name}.png', 'PNG')
+
+    #return photo
+
+parser = argparse.ArgumentParser(description="Whatever to PNG Converter")
+parser.add_argument('-f', '--file', help="input path to file")
+args = parser.parse_args()
+
+convert_to_png(args.file)
