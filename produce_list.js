@@ -4,7 +4,7 @@ export const produce_list = [
     'Romaine Crunch',
     'Baby Spinach',
     'Baby Arugula',
-    '50/50 Salad Mix',
+    '50_50 Salad Mix',
     'Organic Spring Mix',
     'Organic XL Spring Mix',
     'Lemon Herb',
@@ -30,7 +30,7 @@ export const produce_list = [
     'Red Kale',
     'Lacinto Kale',
     'Green Lettuce',
-    'Red Lettuce',,
+    'Red Lettuce',
     'Romaine Lettuce',
     'Bok Choi',
     'Red Chard',
@@ -54,5 +54,8 @@ export const produce_list = [
     'Vine-on Tomatoes',
     'Heirloom Tomatoes',
     'Cherry Tomatoes',
-    'Grape Tomatoes'
+    'Grape Tomatoes',
+    'Bulk Basil',
+    'Ataulfo Pears',
+    "d'Anjou Pears",
 ];
