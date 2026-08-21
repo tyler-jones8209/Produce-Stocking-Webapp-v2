@@ -11,6 +11,7 @@ export const produce_list = [
     'Sweet Kale',
     'Basil Crunch',
     'Caesar',
+    'Spring Blush',
     'Romaine Hearts',
     'Red Bell Pepper',
     'Green Bell Pepper',
