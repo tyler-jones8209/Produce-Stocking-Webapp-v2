@@ -16,21 +16,25 @@ grid_array.forEach((row, row_index) => {
   row.forEach((val, column_index) => {
     const list_item = produce_list[column_index];
     const cell = document.createElement('div');
-    cell.id = "grid_cell";
+    const cell_button = document.createElement('button');
+    cell_button.className = "cell_button_class";
+
+    cell.className = "grid_cell_class";
+    cell_button.classList.add("text");
 
     const photo_name = list_item.toLowerCase().trim().replaceAll(" ", "_");
     const photo_path = `./produce_images/${photo_name}/stock.png`;
-    console.log(photo_path);
-
-    //if (photo_path == "./produce_images/baby_spinach/stock.png") {
-    //  cell.style.backgroundImage = `url(${photo_path})`;
-    //  cell.style.backgroundSize = '170px 170px';
-    //}
 
     cell.style.backgroundImage = `url(${photo_path})`;
     cell.style.backgroundSize = '170px 170px';
 
-    cell.textContent = list_item;
+    cell_button.textContent = list_item;
+
+    cell_button.addEventListener('click', (event) => {
+      console.log(list_item);
+    });
+
+    cell.appendChild(cell_button);
     grid_container.appendChild(cell);
   });
 });
