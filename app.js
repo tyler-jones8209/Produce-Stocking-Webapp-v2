@@ -5,37 +5,57 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+// create empty entries array
+let entries = []
+
 // import produce list from seperate file for convenience
 import { produce_list } from "./produce_list.js";
 
+// grab grid element from index.html
 let grid_container = document.getElementById("grid_container")
 
+// create the grid array to push to the container
 const grid_array = Array.from({ length: 1 }, () => Array(produce_list.length).fill(0));
 
+// loop grid array and create cells for each item in produce_list (or whichever list is pushed--i should make it a function)
 grid_array.forEach((row, row_index) => {
   row.forEach((val, column_index) => {
+
+    // grab item from list using index
     const list_item = produce_list[column_index];
+
+    // create classes for cell and button and add shi
     const cell = document.createElement('div');
     const cell_button = document.createElement('button');
     cell_button.className = "cell_button_class";
-
     cell.className = "grid_cell_class";
     cell_button.classList.add("text");
 
+    // create path to usable photo based on item name
     const photo_name = list_item.toLowerCase().trim().replaceAll(" ", "_");
     const photo_path = `./produce_images/${photo_name}/stock.png`;
 
+    // photo CSS
     cell.style.backgroundImage = `url(${photo_path})`;
     cell.style.backgroundSize = '170px 170px';
 
+    // insert item name into BUTTON textContent and NOT cell.textContent
     cell_button.textContent = list_item;
 
     cell_button.addEventListener('click', (event) => {
       console.log(list_item);
     });
 
+    // okay so im thinking i save each cell in entries and then load the entries array and then render them by appending them to the container
     cell.appendChild(cell_button);
-    grid_container.appendChild(cell);
+
+    entries.push(cell);
+
+    //grid_container.appendChild(cell);
   });
 });
+
+for (const x in entries) {
+  console.log(x);
+}
 
