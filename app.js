@@ -49,13 +49,22 @@ grid_array.forEach((row, row_index) => {
     // okay so im thinking i save each cell in entries and then load the entries array and then render them by appending them to the container
     cell.appendChild(cell_button);
 
+    //console.log(cell);
+
     entries.push(cell);
 
     //grid_container.appendChild(cell);
   });
 });
 
-for (const x in entries) {
-  console.log(x);
+
+// i should change this to be more specific for rendering the whole produce list (whatever sorting is chosen) 
+// and have something seperate for rendering the actual entries list--which is what's added to the things to stock by the user
+function render_entries(entries, container) {
+  for (const div in entries) {
+    container.appendChild(entries[div]);
+  }
 }
+
+render_entries(entries, grid_container);
 
