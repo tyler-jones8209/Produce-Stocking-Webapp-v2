@@ -5,66 +5,63 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-// create empty entries array
-let entries = []
+// i will want some persistance for the base list because if someone likes a specific sorting of the items i bet they would not want to
+// change the sorting every time they open the websitess
+// and obv persistance for whatever they need to stock
 
 // import produce list from seperate file for convenience
 import { produce_list } from "./produce_list.js";
 
-// grab grid element from index.html
-let grid_container = document.getElementById("grid_container")
+function generate_grid_array(input_list) {
+  let grid_container = document.getElementById("grid_container");
 
-// create the grid array to push to the container
-const grid_array = Array.from({ length: 1 }, () => Array(produce_list.length).fill(0));
+  const grid_array = Array.from({ length: 1 }, () => Array(input_list.length).fill(0));
 
-// loop grid array and create cells for each item in produce_list (or whichever list is pushed--i should make it a function)
-grid_array.forEach((row, row_index) => {
-  row.forEach((val, column_index) => {
+  return { grid_container, grid_array };
 
-    // grab item from list using index
-    const list_item = produce_list[column_index];
+}
 
-    // create classes for cell and button and add shi
-    const cell = document.createElement('div');
-    const cell_button = document.createElement('button');
-    cell_button.className = "cell_button_class";
-    cell.className = "grid_cell_class";
-    cell_button.classList.add("text");
-
-    // create path to usable photo based on item name
-    const photo_name = list_item.toLowerCase().trim().replaceAll(" ", "_");
-    const photo_path = `./produce_images/${photo_name}/stock.png`;
-
-    // photo CSS
-    cell.style.backgroundImage = `url(${photo_path})`;
-    cell.style.backgroundSize = '170px 170px';
-
-    // insert item name into BUTTON textContent and NOT cell.textContent
-    cell_button.textContent = list_item;
-
-    cell_button.addEventListener('click', (event) => {
-      console.log(list_item);
-    });
-
-    // okay so im thinking i save each cell in entries and then load the entries array and then render them by appending them to the container
-    cell.appendChild(cell_button);
-
-    //console.log(cell);
-
-    entries.push(cell);
-
-    //grid_container.appendChild(cell);
-  });
-});
-
+const { grid_container, grid_array } = generate_grid_array(produce_list);
 
 // i should change this to be more specific for rendering the whole produce list (whatever sorting is chosen) 
 // and have something seperate for rendering the actual entries list--which is what's added to the things to stock by the user
-function render_entries(entries, container) {
-  for (const div in entries) {
-    container.appendChild(entries[div]);
-  }
+function render_base_list(input_list, container) {
+
+  // loop grid array and create cells for each item in produce_list (or whichever list is pushed--i should make it a function)
+  grid_array.forEach((row, row_index) => {
+    row.forEach((val, column_index) => {
+
+      // grab item from list using index
+      const list_item = input_list[column_index];
+
+      // create classes for cell and button and add shi
+      const cell = document.createElement('div');
+      const cell_button = document.createElement('button');
+      cell_button.className = "cell_button_class";
+      cell.className = "grid_cell_class";
+      cell_button.classList.add("text");
+
+      // create path to usable photo based on item name
+      const photo_name = list_item.toLowerCase().trim().replaceAll(" ", "_");
+      const photo_path = `./produce_images/${photo_name}/stock.png`;
+
+      // photo CSS
+      cell.style.backgroundImage = `url(${photo_path})`;
+      cell.style.backgroundSize = '170px 170px';
+
+      // insert item name into BUTTON textContent and NOT cell.textContent
+      cell_button.textContent = list_item;
+
+      cell_button.addEventListener('click', (event) => {
+        console.log(list_item);
+      });
+
+      // okay so im thinking i save each cell in entries and then load the entries array and then render them by appending them to the container
+      cell.appendChild(cell_button);
+
+      container.appendChild(cell);
+    });
+  });
 }
 
-render_entries(entries, grid_container);
-
+render_base_list(produce_list, grid_container);
