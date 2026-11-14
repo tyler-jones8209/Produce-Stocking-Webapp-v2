@@ -1,5 +1,10 @@
 // no sorting yet just going off what I can recall from the dome 
 
+// ## Potential Sortings: ##
+// alphabetical = []; obvious
+// sections = []; may have to be more of a dictionary but theres like the salads, then wet rack, then whatever tf is next to the wet rack, a-fram display, square display, etc etc
+// produce_type = []; fruits, veggies but probably more in depth and probably alphabetical (apples, carrots, kale, salads, squash, etc)
+
 export const produce_list = [
     'Romaine Crunch',
     'Baby Spinach',

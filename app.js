@@ -12,6 +12,9 @@ if ('serviceWorker' in navigator) {
 // import produce list from seperate file for convenience
 import { produce_list } from "./produce_list.js";
 
+const to_stock = {};
+
+
 function generate_grid_array(input_list) {
   let grid_container = document.getElementById("grid_container");
 
@@ -52,14 +55,73 @@ function render_base_list(input_list, container) {
       // insert item name into BUTTON textContent and NOT cell.textContent
       cell_button.textContent = list_item;
 
-      cell_button.addEventListener('click', (event) => {
-        console.log(list_item);
-      });
+      // cell_button.addEventListener('click', (event) => {
+      //   console.log(list_item);
+      // });
+
+      let holdTimeout;
+      let start_time;
+
+      console.log(`start time at beginning of loop: ${start_time}`);
+
+      // Start holding
+      const startHold = (event) => {
+
+        if (event.type === 'touchstart') {
+          event.preventDefault(); 
+        }        
+
+        start_time = performance.now()
+
+        holdTimeout = setTimeout(() => {
+          console.log('Hold click triggered!');
+        }, 450); // 600ms threshold
+      };
+
+      // can't decide what i should actually do with the hold feature
+      // thinking one tap/click just ads x1 of an item as a quantity
+      // and maybe the hold will add the item as an whole thing rather than a quantified version
+      const endHold = (event) => {
+        clearTimeout(holdTimeout);
+
+        if (start_time) {
+          const hold_duration = performance.now() - start_time
+
+          if (hold_duration < 260.00) {
+            if (!to_stock[list_item]) {
+              to_stock[list_item] = 1;
+            } 
+            
+            else {
+              to_stock[list_item] = to_stock[list_item] + 1;
+            }
+
+          }
+
+          console.clear();
+          for (const [key, value] of Object.entries(to_stock)) {
+            console.log(`${key}: ${value}`);
+          }
+
+
+          start_time = null;
+        }
+
+      };
+
+      cell_button.addEventListener('mousedown', startHold);
+      cell_button.addEventListener('mouseup', endHold);
+      cell_button.addEventListener('mouseleave', endHold);
+
+      // Support mobile touch events as well
+      cell_button.addEventListener('touchstart', startHold);
+      cell_button.addEventListener('touchend', endHold);
 
       // okay so im thinking i save each cell in entries and then load the entries array and then render them by appending them to the container
       cell.appendChild(cell_button);
 
       container.appendChild(cell);
+      
     });
   });
 }
