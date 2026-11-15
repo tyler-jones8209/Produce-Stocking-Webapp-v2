@@ -60,6 +60,12 @@ body {
   background-color: #ccc;
 }
 
+.queue_placeholder {
+  color: #000000;
+  align-content: center;
+  text-decoration: none;
+}
+
 .nav_bar {
   position: fixed;
   bottom: 0;

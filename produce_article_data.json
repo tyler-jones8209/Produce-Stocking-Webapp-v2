@@ -1,0 +1,10 @@
+{
+    "lacinto_kale": {
+        "title": "Lacinto Kale",
+        "image": "./produce_images/lacinto_kale.png",
+        "organic": "Yes",
+        "origin": "Idk prolly minnesota or wisconsin",
+        "crisping_required": "Yes",
+        "seasons_stocked": "All"
+    }
+}

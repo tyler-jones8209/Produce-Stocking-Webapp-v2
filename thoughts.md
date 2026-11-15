@@ -23,9 +23,8 @@ I think a lot of the information heavy areas can be condensed into "articles" wh
 I think the next thing to implement is a home page and navigation. I want to start with just the stocking tab and the "articles" tab
 
 ## Articles Setup
-Since the "articles" on produce (e.g., Bartlett Pears, Lacinto Kale, EBF Baby Spinach) will all follow the same formula, I should figure out how to make some sort of reusable/importable templet so I don't have to create 100+ individual html files.
+Since the "articles" on produce (e.g., Bartlett Pears, Lacinto Kale, EBF Baby Spinach) will all follow the same formula, I should figure out how to make some sort of reusable/importable templet so I don't have to create 100+ individual html files. I should get the template set up sooner than later so I can figure out exactly what information I'll need to get through someone with more clearance
 
-I also will need to find a way to get access to all of the information I need.
 
 ## Customizability
 An important requirement I want for this webapp is the ability to customize as much as realistically possible. Things I want to make changeable are:
