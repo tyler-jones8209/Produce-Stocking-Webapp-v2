@@ -17,6 +17,11 @@ My main goal for this webapp is something that anyone in our produce department 
 
 I think a lot of the information heavy areas can be condensed into "articles" which could be its own tab
 
+# Next Steps
+
+## Home Page with Navigation [ ]
+I think the next thing to implement is a home page and navigation. I want to start with just the stocking tab and the "articles" tab
+
 ## Customizability
 An important requirement I want for this webapp is the ability to customize as much as realistically possible. Things I want to make changeable are:
 - Default screen the webapp loads upon opening
