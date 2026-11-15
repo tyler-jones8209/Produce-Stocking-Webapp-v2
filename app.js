@@ -127,3 +127,10 @@ function render_base_list(input_list, container) {
 }
 
 render_base_list(produce_list, grid_container);
+
+const circle_button = document.getElementById('stock_circle');
+
+circle_button.addEventListener('click', () => {
+  console.log("Button clicked");
+  window.location.href = "stock_queue.html";
+});

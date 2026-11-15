@@ -19,8 +19,13 @@ I think a lot of the information heavy areas can be condensed into "articles" wh
 
 # Next Steps
 
-## Home Page with Navigation [ ]
+## Home Page with Navigation [X]
 I think the next thing to implement is a home page and navigation. I want to start with just the stocking tab and the "articles" tab
+
+## Articles Setup
+Since the "articles" on produce (e.g., Bartlett Pears, Lacinto Kale, EBF Baby Spinach) will all follow the same formula, I should figure out how to make some sort of reusable/importable templet so I don't have to create 100+ individual html files.
+
+I also will need to find a way to get access to all of the information I need.
 
 ## Customizability
 An important requirement I want for this webapp is the ability to customize as much as realistically possible. Things I want to make changeable are:
@@ -30,6 +35,7 @@ An important requirement I want for this webapp is the ability to customize as m
 
 Of course these changes would only apply to that specific persons version
 
-
 ## "To Stock" Feature
 I'm thinking the default tab is the "to stock" feature porque si la gente are trying to stock efficiently it's easier to just open the webapp and boom start choosing what you need. Though with all the bullshit about phones lately it doesn't seem likely that we could even use them for this anyway. But I could also make it to where you choose which page it automatically loads on. 
+
+I want a little circile in the bottom right of the screen with like a pencil/notepad logo that when clicked will take you to an interacitve list of all the items you chose to be stocked
