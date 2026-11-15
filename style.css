@@ -10,6 +10,7 @@ body {
   grid-template-columns: repeat(2, 170px);
   gap: 2.5px;
   place-content: center;
+  padding-bottom: 40px;
 }
 
 .grid_cell_class {
@@ -33,4 +34,38 @@ body {
 
   /* display: flexbox;
   align-items: flex-end; */
+}
+
+.nav_bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  align-self: center;
+  width: 342.5px;
+  box-sizing: border-box;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  padding: 1rem 2rem;
+}
+
+.nav_bar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav_links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav_links a.active {
+  color: #4da6ff;
+  font-weight: bold;
 }
