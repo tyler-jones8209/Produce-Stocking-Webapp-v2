@@ -17,6 +17,14 @@ My main goal for this webapp is something that anyone in our produce department 
 
 I think a lot of the information heavy areas can be condensed into "articles" which could be its own tab
 
+## Customizability
+An important requirement I want for this webapp is the ability to customize as much as realistically possible. Things I want to make changeable are:
+- Default screen the webapp loads upon opening
+- Pictures and names for produce in the to stock section
+- Information in the articles
+
+Of course these changes would only apply to that specific persons version
+
 # Home Page with Navigation
 Currently the "home page" is just the stocking page.
 
@@ -28,17 +36,12 @@ Currently the "home page" is just the stocking page.
 # Articles Setup
 Since the "articles" on produce (e.g., Bartlett Pears, Lacinto Kale, EBF Baby Spinach) will all follow the same formula, I should figure out how to make some sort of reusable/importable templet so I don't have to create 100+ individual html files. I should get the template set up sooner than later so I can figure out exactly what information I'll need to get through someone with more clearance
 
-
-# Customizability
-An important requirement I want for this webapp is the ability to customize as much as realistically possible. Things I want to make changeable are:
-- Default screen the webapp loads upon opening
-- Pictures and names for produce in the to stock section
-- Information in the articles
-
-Of course these changes would only apply to that specific persons version
-
 # "To Stock" Feature
 I'm thinking the default tab is the "to stock" feature porque si la gente are trying to stock efficiently it's easier to just open the webapp and boom start choosing what you need. Though with all the bullshit about phones lately it doesn't seem likely that we could even use them for this anyway. But I could also make it to where you choose which page it automatically loads on. 
+
+## Different Methods for Sorting Stock Items
+- [ ] Dropdown menu somewhere for selecting different methods of sorting
+- [ ] Sub-headers for the specific categories of the sorted stock (e.g, Apples, Pears, Potatoes, etc)
 
 ## Circle Navigation to and from Stock Queue
 - [ ] Clickable circle that takes you to stock page

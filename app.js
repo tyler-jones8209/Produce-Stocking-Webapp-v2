@@ -128,11 +128,11 @@ function render_base_list(input_list, container) {
 
 render_base_list(produce_list, grid_container);
 
-sessionStorage.setItem("stock_queue", JSON.stringify(to_stock));
-
 const circle_button = document.getElementById('stock_circle');
 
 circle_button.addEventListener('click', () => {
-  console.log("Button clicked");
+
+  sessionStorage.setItem("stock_queue", JSON.stringify(to_stock));
+
   window.location.href = "stock_queue.html";
 });
