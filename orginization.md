@@ -51,7 +51,7 @@ I'm thinking the default tab is the "to stock" feature porque si la gente are tr
 
 ## Stock Queue Page
 I know a whole seperate page you have to navigate to just to see whats in the queue is super dumb but im gonna do it first and change it later
-- [ ] Display list created from stocking page sent over from sessionStorage
+- [x] Display list created from stocking page sent over from sessionStorage
 - [ ] Each item can be swiped left to delete all of the item(s) as a whole
 - [ ] Each item can be swiped right to delete only one 
 - [ ] Button located somewhere to clear entire list
