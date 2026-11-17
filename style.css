@@ -104,7 +104,7 @@ body {
   padding: calc(16px + env(safe-area-inset-top)) max(16px, calc((100% - 430px) / 2)) 120px;
   border-radius: 12px;
   width: 100%;
-  max-width: 430px;
+  max-width: 393px;
 }
 
 .queue_placeholder li {
