@@ -114,6 +114,9 @@ body {
   align-items: center;
   font-size: 17px;
   color: #000000;
+  border: 1px solid #000000;
+  padding: 10px;
+  margin-bottom: 2px;
   box-sizing: border-box;
 }
 
