@@ -113,7 +113,6 @@ function render_base_list(input_list, container) {
       cell_button.addEventListener('mouseup', endHold);
       cell_button.addEventListener('mouseleave', endHold);
 
-      // Support mobile touch events as well
       cell_button.addEventListener('touchstart', startHold);
       cell_button.addEventListener('touchend', endHold);
 
@@ -130,9 +129,69 @@ render_base_list(produce_list, grid_container);
 
 const circle_button = document.getElementById('stock_circle');
 
-circle_button.addEventListener('click', () => {
+const DURATION = 600;
+const views = [
+  document.getElementById('stocking_view'),
+  document.getElementById('stock_queue_view')
+];
 
-  sessionStorage.setItem("stock_queue", JSON.stringify(to_stock));
+function render_queue() {
+  const list = document.getElementById('stock_queue_list');
+  list.replaceChildren(); // clear old entries so they don't duplicate
 
-  window.location.href = "stock_queue.html";
-});
+  const entries = Object.entries(to_stock);
+
+  if (entries.length === 0) {
+    const empty = document.createElement('li');
+    empty.textContent = 'Your stock queue is empty.';
+    list.appendChild(empty);
+    return;
+  }
+
+  entries.forEach(([item_name, quantity]) => {
+    const li = document.createElement('li');
+    li.textContent = `${item_name}: ${quantity}`;
+    list.appendChild(li);
+  });
+}
+
+
+let active = 0;
+let animating = false;
+
+function swap_views() {
+
+  if (animating) return; // ignore taps mid-animation
+  animating = true;
+
+  render_queue();
+
+  const outgoing = views[active];
+  const incoming = views[1 - active];
+
+  // circle grows from the center of the button
+  const r = circle_button.getBoundingClientRect();
+  const cx = r.left + r.width / 2;
+  const cy = r.top + r.height / 2;
+  const maxR = Math.hypot(Math.max(cx, innerWidth - cx), Math.max(cy, innerHeight - cy));
+
+  incoming.classList.add('incoming');
+
+  const anim = incoming.animate(
+    [
+      { clipPath: `circle(0px at ${cx}px ${cy}px)` },
+      { clipPath: `circle(${maxR}px at ${cx}px ${cy}px)` }
+    ],
+    { duration: DURATION, easing: 'ease-in-out', fill: 'both' }
+  );
+
+  anim.onfinish = () => {
+    outgoing.classList.remove('active');
+    incoming.classList.replace('incoming', 'active');
+    anim.cancel();
+    active = 1 - active;
+    animating = false;
+  };
+}
+
+circle_button.addEventListener('click', swap_views);

@@ -50,7 +50,9 @@ I'm thinking the default tab is the "to stock" feature porque si la gente are tr
 - [ ] Circle (when on stock queue page) takes you back to stocking page
 
 ## Stock Queue Page
-I know a whole seperate page you have to navigate to just to see whats in the queue is super dumb but im gonna do it first and change it later
+I know a whole seperate page you have to navigate to just to see whats in the queue is super dumb but im gonna do it first and change it later.
+
+Actually sike hard pivot to in page viewing because switchign to a new page is so dumb
 - [x] Display list created from stocking page sent over from sessionStorage
 - [ ] Each item can be swiped left to delete all of the item(s) as a whole
 - [ ] Each item can be swiped right to delete only one 

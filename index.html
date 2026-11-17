@@ -12,11 +12,17 @@
 </head>
 <body>
 
-  <div id="grid_container"></div>
+  <section id="stocking_view" class="view active">
+    <div id="grid_container"></div>
+  </section>
+
+  <section id="stock_queue_view" class="view">
+    <ul id="stock_queue_list" class="queue_placeholder"></ul>
+  </section>
 
   <div id="nav_bar_placeholder"></div>
 
-  <button id="stock_circle" class="stock_circle_button" aria-label="Circle button"></button>
+  <button id="stock_circle" class="stock_circle_button" aria-label="Switch view"></button>
 
   <script src="navigation_bar.js"></script>
 
